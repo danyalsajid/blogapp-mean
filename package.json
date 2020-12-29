@@ -1,0 +1,26 @@
+{
+  "name": "meanauthapp",
+  "version": "1.0.0",
+  "description": "Bloggin app",
+  "main": "app.js",
+  "engines": {
+    "node": "v14.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production MONGO_USER=danyal_2 MONGO_PASSWORD=test1234 MONGO_DBNAME=blog-app node app.js",
+    "start:dev": "NODE_ENV=production MONGO_USER=danyal_2 MONGO_PASSWORD=test1234 node app.js MONGO_DBNAME=blog-app nodemon app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "helmet": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.8"
+  },
+  "author": "Danyal",
+  "license": "ISC"
+}
