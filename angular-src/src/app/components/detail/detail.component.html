@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div
+  class="mx-auto rounded shadow w-75 bg-dark text-light p-4 my-3"
+  *ngIf="!loading"
+>
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h3 *ngIf="!editMode">
+        Title:
+        <b> {{ blog.title }} </b>
+      </h3>
+      <div *ngIf="editMode">
+        <label for="title">Title</label>
+        <input
+          class="form-control bg-transparent text-light"
+          [(ngModel)]="title"
+          type="text"
+          name="title"
+          placeholder="Title"
+        />
+      </div>
+    </div>
+    <div *ngIf="canChange && !editMode">
+      <button
+        class="btn btn-outline-light rounded-circle mx-3"
+        style="width: 45px; height: 45px"
+        (click)="onEdit()"
+      >
+        <i class="fa fa-lg fa-pencil"></i>
+      </button>
+      <button
+        class="btn btn-outline-light rounded-circle"
+        style="width: 45px; height: 45px"
+        (click)="onDelete()"
+      >
+        <i class="fa fa-lg fa-trash"></i>
+      </button>
+    </div>
+  </div>
+
+  <br />
+
+  <div *ngIf="!editMode">
+    <h4>Description</h4>
+    <p>{{ blog.description }}</p>
+  </div>
+  <div *ngIf="editMode">
+    <label for="description">Description</label>
+    <textarea
+      class="form-control bg-transparent text-light"
+      [(ngModel)]="description"
+      type="text"
+      name="description"
+      placeholder="Description"
+      rows="5"
+      required
+    >
+    </textarea>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn btn-outline-light mx-3" (click)="editMode = false">
+        Cancel
+      </button>
+      <button class="btn btn-outline-light" (click)="onUpdate()">Update</button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="d-flex justify-content-between">
+    <small
+      >By: <b> {{ blog.username }}</b></small
+    >
+    <small
+      >Created at: <b>{{ blog.createdAt | date: "dd/MM/yyyy" }}</b></small
+    >
+  </div>
+</div>

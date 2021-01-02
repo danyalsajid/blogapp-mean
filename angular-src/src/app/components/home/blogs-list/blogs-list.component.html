@@ -1,0 +1,28 @@
+<div
+  class="mx-auto rounded shadow w-75 bg-dark text-light p-3 my-3 pointer"
+  (click)="onShowDetail()"
+>
+  <p>
+    <b> {{ blog.title }} </b>
+  </p>
+  <p
+    style="
+      width: 75%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    "
+  >
+    {{ blog.description }}
+  </p>
+
+  <hr />
+  <div class="d-flex justify-content-between">
+    <small>
+      By:<b> {{ blog.username }}</b></small
+    >
+    <small
+      >Created at: <b>{{ blog.createdAt | date: "dd/MM/yyyy" }}</b></small
+    >
+  </div>
+</div>
